@@ -9,7 +9,7 @@ if ($connect->connect_error) {
 
 $currentId = isset($_GET['exclude_id']) ? intval($_GET['exclude_id']) : 0;
 
-$sql = "SELECT id, username FROM users WHERE type != 'Patient' AND id != $currentId";
+$sql = "SELECT id, username, type FROM users WHERE type != 'Patient' AND id != $currentId";
 $result = $connect->query($sql);
 
 if (!$result) {
