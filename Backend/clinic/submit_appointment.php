@@ -30,6 +30,9 @@ if (
         $insert = $conn->prepare("INSERT INTO appointments_pt (patient_id, doctor_id, date, time, status, reason_for_visit) VALUES (?, ?, ?, ?, ?, ?)");
         $insert->bind_param("iissss", $patient_id, $doctor_id, $date, $time, $status, $reason_for_visit);
         $insert->execute();
+        $insert2 = $conn->prepare("INSERT INTO appointments (patient_id, doctor_id, date, time, status, reason_for_visit) VALUES (?, ?, ?, ?, ?, ?)");
+        $insert2->bind_param("iissss", $patient_id, $doctor_id, $date, $time, $status, $reason_for_visit);
+        $insert2->execute();
         echo $insert->affected_rows > 0 ? "Success" : "Failed";
         $insert->close();
     } else {

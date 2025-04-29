@@ -10,11 +10,11 @@ public class ChatServer {
         int port = 8888;
 
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("🔌 Server started on port " + port);
+            System.out.println(" Server started on port " + port);
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                System.out.println("👤 New client connected: " + clientSocket.getInetAddress());
+                System.out.println(" New client connected: " + clientSocket.getInetAddress());
 
                 new Thread(() -> handleClient(clientSocket)).start();
             }
@@ -38,7 +38,7 @@ public class ChatServer {
 
             String message;
             while ((message = in.readLine()) != null) {
-                System.out.println("📩 Message from " + username + ": " + message);
+                System.out.println(" Message from " + username + ": " + message);
 
                 String[] parts = message.split("\\|", 2);
                 if (parts.length == 2) {
@@ -60,7 +60,7 @@ public class ChatServer {
             }
 
         } catch (IOException e) {
-            System.out.println("❌ Connection error with " + username);
+            System.out.println(" Connection error with " + username);
         } finally {
             if (username != null) {
                 synchronized (userMap) {

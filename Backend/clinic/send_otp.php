@@ -31,13 +31,13 @@ if (isset($_POST['contact_value'])) {
         $mail->isSMTP();
         $mail->Host       = 'in-v3.mailjet.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = '85369245d86121cecab62469a987c886';        // Replace with your Mailjet Public API Key
-        $mail->Password   = '106303408a139b6147602de8b71305cb';     // Replace with your Mailjet Secret Key
+        $mail->Username   = '85369245d86121cecab62469a987c886';        
+        $mail->Password   = '106303408a139b6147602de8b71305cb';     
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
-        $mail->setFrom('cpcclinic3@gmail.com', 'CPC Clinic'); // Use your verified sender address
-        $mail->addAddress($contact);                         // Recipient
+        $mail->setFrom('cpcclinic3@gmail.com', 'CPC Clinic'); 
+        $mail->addAddress($contact);                        
         $mail->isHTML(true);
         $mail->Subject = 'Your OTP Code';
         $mail->Body    = "Your OTP is: <b>$otp</b>";
